@@ -1,0 +1,2 @@
+"vertices"	"nedges"	"density"	"min_degree"	"avgdeg"	"max_degree"	"min_clustering"	"avgclustering"	"max_clustering"	"avgshortestpath"	"diameter"	"global_efficiency"	"local_efficiency"
+26	170	0.524615	10.000000	13.115385	16.000000	0.000000	0.119172	0.181818	1.506706	3	0.775897	0.637393

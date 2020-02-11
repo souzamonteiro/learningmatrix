@@ -1,0 +1,112 @@
+#!/usr/local/bin/guash
+#
+# mknextstep.gua
+#
+#     This script prepare a time series for next step prevision.
+#
+# Copyright (C) 2017 Roberto Luiz Souza Monteiro.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# RCS: @(#) $Id: mknextstep.gua,v 1.0 2016/12/27 11:40:00 monteiro Exp $
+#
+
+#
+# Configuration variables.
+#
+input_file1 = "noname"
+output_file1 = "output1.csv"
+output_file2 = "output2.csv"
+np = 1
+
+#
+# Main program.
+#
+if (argc < 3) {
+    println("Usage: mknextstep option1 value1 [option1 value1]")
+    exit
+}
+
+i = 2
+
+while (i < argc) {
+    if ((argv[i] == "-h") || (argv[i] == "--help")) {
+        println("Usage: mknextstep option1 value1 [option1 value1]")
+        println("-h    --help         show the options sumary")
+        println("-i                   input file")
+        println("      --o1           first output file")
+        println("      --o2           second output file")
+        println("      --np           number of points in first output file")
+        exit(0)
+    } elseif (argv[i] == "-i") {
+        i = i + 1
+        input_file = argv[i]
+    } elseif (argv[i] == "--o1") {
+        i = i + 1
+        output_file1 = argv[i]
+    } elseif (argv[i] == "--o2") {
+        i = i + 1
+        output_file2 = argv[i]
+    } elseif (argv[i] == "--np") {
+        i = i + 1
+        np = eval(argv[i])
+    }
+    i = i + 1
+}
+
+# Check if the input file name was supplied.
+if (input_file == "noname") {
+    println("Error: input file name is mandatory.")
+    exit(1)
+}
+
+# Open the input files.
+fi = fopen(input_file, "r")
+
+n = 0
+while (!feof(fi)) {
+    if ((line1 = fgets(fi)) == NULL) {
+        break
+    }
+    
+    if (length(line1) > 0) {
+        data = eval(line1)
+        series[n] = data
+        n = n + 1
+    } else {
+        continue
+    }
+}
+
+fi = fclose(fi)
+
+# Create the output files.
+fo1 = fopen(output_file1, "w")
+fo2 = fopen(output_file2, "w")
+
+for (i = 0; i < (length(series) - np); i = i + 1) {
+    record = ""
+    for (j = i; j < (i + np); j = j + 1) {
+        record = record + series[j] + ","
+    }
+    record = trim(record, ",") + "\n"
+    
+    fputs(record, fo1)
+    fputs(series[j] + "\n", fo2)
+}
+
+fo1 = fclose(fo1)
+fo2 = fclose(fo2)
+

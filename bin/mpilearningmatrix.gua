@@ -1,0 +1,554 @@
+#!/usr/local/bin/mpiguash
+#
+# mpilearningmatrix.gua
+#
+#     This script simulates a neural network using the MPI framework.
+#
+# Copyright (C) 2019 Roberto Luiz Souza Monteiro,
+#                    Hernane Borges de Barros Pereira.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# RCS: @(#) $Id: mpilearningmatrix.gua,v 1.0 2019/11/22 12:18:00 monteiro Exp $
+#
+
+# Set the package path.
+script_file = fsFullPath($argv[1]);
+script_path = fsPath(script_file);
+root_path = fsPath(script_path)
+pkg_path = root_path + "/lib"
+
+if (exists("SYS_PKG_PATH")) {
+    last = length(SYS_PKG_PATH)
+    SYS_PKG_PATH[last] = pkg_path
+} else {
+    SYS_PKG_PATH[0] = pkg_path
+}
+
+# Load the required packages.
+include("lmtx")
+
+function callback_function(epochs, rss, correctness, etl) {
+    #println("Epochs = " + epochs + ", RSS = " + rss + ", correctness = " + correctness + ", ETL = " + etl)
+}
+
+#
+# Configuration variables.
+#
+input_file = "noname"
+output_file = "output.csv"
+report_file = "report.txt"
+correctness_file = "noname"
+prefix = "sample"
+ann_file = "noname"
+ann_output_file = "noname"
+ann_output_file_type = "edges"
+its_file = "noname"
+ots_file = "noname"
+no = 0
+activation_function = "logistic"
+output_layer_activation_function = "logistic"
+output_function = "step"
+allow_loops = FALSE
+skipfirst = FALSE
+separator = ","
+prepare = FALSE
+negative_weights = FALSE
+max_epochs = 1
+interval = 0
+minimum_correctness = 1.0
+tseed = FALSE
+
+lrate = 0.45
+af = LMTX_LOGISTIC_ACTIVATION_FUNCTION
+oaf = LMTX_LOGISTIC_ACTIVATION_FUNCTION
+of = LMTX_STEP_OUTPUT_FUNCTION
+ofc = ""
+
+#
+# Main program.
+#
+if (argc < 3) {
+    println("Usage: neuralsim option1 value1 [option1 value1]")
+    exit
+}
+
+i = 2
+
+while (i < argc) {
+    if ((argv[i] == "-h") || (argv[i] == "--help")) {
+        println("Usage: neuralsim option1 value1 [option1 value1]")
+        println("-h    --help         show the options sumary")
+        println("-i                   input file")
+        println("-o                   output file")
+        println("-t                   lmtx output file type(default=edges)")
+        println("      --prefix       prefix for multiple neural network files(default=\"sample\")")
+        println("      --its          input training set file")
+        println("      --ots          output training set file")
+        println("      --no           number of outputs for run without train")
+        println("      --lrate        learning rate(default=\"0.45\")")
+        println("      --af           activation function(default=\"logistic\")")
+        println("      --oaf          output layer activation function(default=\"logistic\")")
+        println("      --of           output function(default=\"step\")")
+        println("      --ofc          output function coefficients")
+        println("      --loops        allow loops in network(biases)")
+        println("      --skipfirst    skip first line of input and output training set files")
+        println("      --separator    training set files column separator(default=\',\')")
+        println("      --prepare      prepare the artificil neural network to learning")
+        println("      --nw           allow initial negative weights")
+        println("      --epochs       max number of epochs to learning")
+        println("      --interval     epochs interval to show the learning progress")
+        println("      --correct      target correctness")
+        println("      --tseed        use the time as seed to random number generation")
+
+        exit(0)
+    } elseif (argv[i] == "-i") {
+        i = i + 1
+        input_file = argv[i]
+    } elseif (argv[i] == "-o") {
+        i = i + 1
+        output_file = argv[i]
+    } elseif (argv[i] == "-t") {
+        i = i + 1
+        ann_output_file_type = argv[i]
+    } elseif (argv[i] == "--prefix") {
+        i = i + 1
+        prefix = argv[i]
+    } elseif (argv[i] == "--its") {
+        i = i + 1
+        its_file = argv[i]
+    } elseif (argv[i] == "--ots") {
+        i = i + 1
+        ots_file = argv[i]
+    } elseif (argv[i] == "--no") {
+        i = i + 1
+        no = eval(argv[i])
+    } elseif (argv[i] == "--lrate") {
+        i = i + 1
+        lrate = eval(argv[i])
+    } elseif (argv[i] == "--af") {
+        i = i + 1
+        activation_function = argv[i]
+    } elseif (argv[i] == "--oaf") {
+        i = i + 1
+        output_layer_activation_function = argv[i]
+    } elseif (argv[i] == "--of") {
+        i = i + 1
+        output_function = argv[i]
+    } elseif (argv[i] == "--ofc") {
+        i = i + 1
+        ofc = eval(argv[i])
+    } elseif (argv[i] == "--loops") {
+        allow_loops = TRUE
+    } elseif (argv[i] == "--skipfirst") {
+        skipfirst = TRUE
+    } elseif (argv[i] == "--separator") {
+        i = i + 1
+        separator = argv[i]
+    } elseif (argv[i] == "--prepare") {
+        prepare = TRUE
+    } elseif (argv[i] == "--nw") {
+        negative_weights = TRUE
+    } elseif (argv[i] == "--epochs") {
+        i = i + 1
+        max_epochs = eval(argv[i])
+    } elseif (argv[i] == "--interval") {
+        i = i + 1
+        interval = eval(argv[i])
+    } elseif (argv[i] == "--correct") {
+        i = i + 1
+        minimum_correctness = eval(argv[i])
+    } elseif (argv[i] == "--tseed") {
+        tseed = TRUE
+    }
+    i = i + 1
+} 
+
+rank = MPI_Comm_rank()
+size = MPI_Comm_size()
+
+println("Process #" + rank + " of " + size + " started.")
+
+if ((its_file == "noname") && (ots_file == "noname") && (input_file == "noname")) {
+    println("Error: no training and input files.")
+    exit
+} elseif ((its_file != "noname") && (ots_file == "noname") && (input_file == "noname")) {
+    println("Error: no training output file.")
+    exit
+} elseif ((its_file == "noname") && (ots_file != "noname") && (input_file == "noname")) {
+    println("Error: no training input file.")
+    exit
+} elseif ((its_file == "noname") && (ots_file == "noname") && (input_file != "noname")) {
+    if (no == 0) {
+        println("Error: no number of outputs.")
+        exit
+    }
+}
+
+if (activation_function == "logistic") {
+    af = LMTX_LOGISTIC_ACTIVATION_FUNCTION
+} elseif (activation_function == "tanh") {
+    af = LMTX_TANH_ACTIVATION_FUNCTION
+} elseif (activation_function == "linear") {
+    af = LMTX_LINEAR_ACTIVATION_FUNCTION
+} else {
+    af = LMTX_SIGMOID_ACTIVATION_FUNCTION
+}
+
+if (output_layer_activation_function == "logistic") {
+    oaf = LMTX_LOGISTIC_ACTIVATION_FUNCTION
+} elseif (output_layer_activation_function == "tanh") {
+    oaf = LMTX_TANH_ACTIVATION_FUNCTION
+} elseif (output_layer_activation_function == "linear") {
+    oaf = LMTX_LINEAR_ACTIVATION_FUNCTION
+} else {
+    oaf = LMTX_SIGMOID_ACTIVATION_FUNCTION
+}
+
+if (output_function == "none") {
+    of = LMTX_NO_OUTPUT_FUNCTION
+} elseif (activation_function == "linear") {
+    of = LMTX_LINEAR_OUTPUT_FUNCTION
+} elseif (activation_function == "step") {
+    of = LMTX_STEP_OUTPUT_FUNCTION
+} else {
+    of = LMTX_STEP_OUTPUT_FUNCTION
+}
+
+#
+# Read the training set files...
+#
+
+# Input set.
+if (its_file != "noname") {
+    dim_its = matrix(0, 2)
+
+    # Get matrix dimensions...
+    itsf = fopen(its_file, "r")
+    while (!feof(itsf)) {
+        if ((line = fgets(itsf)) == NULL) {
+            break
+        }
+        
+        dim_its[0] = dim_its[0] + 1
+        
+        if (dim_its[0] == 1) {
+            if (skipfirst) {
+                continue
+            }
+        }
+        
+        if (separator != " ") {
+            record = split(trim(line, " \t\n"), separator)
+        } else {
+            record = split(trim(line, " \t\n"))
+        }
+        
+        if (dim_its[1] == 0) {
+            dim_its[1] = length(record)
+        }
+    }
+    itsf = fclose(itsf)
+    its_matrix = matrix(0.0, dim_its[0], dim_its[1])
+
+    # Read data...
+    itsf = fopen(its_file, "r")
+    row = 0
+    while (!feof(itsf)) {
+        if ((line = fgets(itsf)) == NULL) {
+            break
+        }
+        
+        if (row == 0) {
+            if (skipfirst) {
+                continue
+            }
+        }
+        
+        if (separator != " ") {
+            record = split(trim(line, " \t\n"), separator)
+        } else {
+            record = split(trim(line, " \t\n"))
+        }
+        
+        foreach (record; k; v) {
+            its_matrix[row, k] = eval(v)
+        }
+        
+        row = row + 1
+    }
+    itsf = fclose(itsf)
+}
+
+# Output set.
+if (ots_file != "noname") {
+    dim_ots = matrix(0, 2)
+
+    # Get matrix dimensions...
+    otsf = fopen(ots_file, "r")
+    while (!feof(otsf)) {
+        if ((line = fgets(otsf)) == NULL) {
+            break
+        }
+        
+        dim_ots[0] = dim_ots[0] + 1
+        
+        if (dim_ots[0] == 1) {
+            if (skipfirst) {
+                continue
+            }
+        }
+        
+        if (separator != " ") {
+            record = split(trim(line, " \t\n"), separator)
+        } else {
+            record = split(trim(line, " \t\n"))
+        }
+        
+        if (dim_ots[1] == 0) {
+            dim_ots[1] = length(record)
+        }
+    }
+    otsf = fclose(otsf)
+    ots_matrix = matrix(0.0, dim_ots[0], dim_ots[1])
+
+    # Read data...
+    otsf = fopen(ots_file, "r")
+    row = 0
+    while (!feof(otsf)) {
+        if ((line = fgets(otsf)) == NULL) {
+            break
+        }
+        
+        if (row == 0) {
+            if (skipfirst) {
+                continue
+            }
+        }
+        
+        if (separator != " ") {
+            record = split(trim(line, " \t\n"), separator)
+        } else {
+            record = split(trim(line, " \t\n"))
+        }
+        
+        foreach (record; k; v) {
+            ots_matrix[row, k] = eval(v)
+        }
+        
+        row = row + 1
+    }
+    otsf = fclose(otsf)
+}
+
+#
+# Read the input set...
+#
+
+# Input set.
+if (input_file != "noname") {
+    dim_input = matrix(0, 2)
+
+    # Get matrix dimensions...
+    inf = fopen(input_file, "r")
+    while (!feof(inf)) {
+        if ((line = fgets(inf)) == NULL) {
+            break
+        }
+        
+        dim_input[0] = dim_input[0] + 1
+        
+        if (dim_input[0] == 1) {
+            if (skipfirst) {
+                continue
+            }
+        }
+        
+        if (separator != " ") {
+            record = split(trim(line, " \t\n"), separator)
+        } else {
+            record = split(trim(line, " \t\n"))
+        }
+        
+        if (dim_input[1] == 0) {
+            dim_input[1] = length(record)
+        }
+    }
+    inf = fclose(inf)
+    input_matrix = matrix(0.0, dim_input[0], dim_input[1])
+
+    # Read data...
+    inf = fopen(input_file, "r")
+    row = 0
+    while (!feof(inf)) {
+        if ((line = fgets(inf)) == NULL) {
+            break
+        }
+        
+        if (row == 0) {
+            if (skipfirst) {
+                continue
+            }
+        }
+        
+        if (separator != " ") {
+            record = split(trim(line, " \t\n"), separator)
+        } else {
+            record = split(trim(line, " \t\n"))
+        }
+        
+        foreach (record; k; v) {
+            input_matrix[row, k] = eval(v)
+        }
+        
+        row = row + 1
+    }
+    inf = fclose(inf)
+}
+
+# Set the random number generator seed.
+if (tseed) {
+    srandom(time)
+} else {
+    srandom(rank)
+}
+
+# Start ANN trainning...
+
+# Get the current time...
+etc_t1 = time()
+
+# Set paths based on process rank.
+ann_file = prefix + "-" + sprintf("%0" + length(toString(size)) + "." + length(toString(size)) + "d", rank + 1) + ".net"
+ann_output_file = prefix + "-" + sprintf("%0" + length(toString(size)) + "." + length(toString(size)) + "d", rank + 1) + "_trained.net"
+output_file = prefix + "-" + sprintf("%0" + length(toString(size)) + "." + length(toString(size)) + "d", rank + 1) + "_output.csv"
+report_file = prefix + "-" + sprintf("%0" + length(toString(size)) + "." + length(toString(size)) + "d", rank + 1) + "_report.txt"
+correctness_file = prefix + "-" + sprintf("%0" + length(toString(size)) + "." + length(toString(size)) + "d", rank + 1) + "_correctness.csv"
+
+#
+# Read the artificial neural network file.
+#
+nn = lmtxLoadFile(ann_file)
+labels = lmtxGetLabels(nn)
+
+etl_t1 = 0.0
+etl_t2 = 0.0
+
+etp_t1 = 0.0;
+etp_t2 = 0.0;
+
+epochs = 0
+rss = 0.0
+correctness = 0.0
+
+if (exists("its_matrix") && exists("ots_matrix")) {
+    #
+    # Prepare network.
+    #    
+    if (prepare) {
+        nn = lmtxPrepare(nn, TRUE, allow_loops, negative_weights)
+    } else {
+        nn = lmtxPrepare(nn, FALSE, allow_loops, negative_weights)
+    }
+    
+    #
+    # Train network.
+    #    
+    if (exists("corr_matrix")) {
+        corr_matrix = NULL
+    }
+    
+    corr_matrix = matrix(0.0, max_epochs + 1, 2)
+    
+    etl_t1 = time()
+    
+    result = lmtxTrain("nn", its_matrix, ots_matrix, lrate, af, oaf, of, ofc, max_epochs, minimum_correctness, "corr_matrix", "callback_function", interval)
+    
+    epochs = result[0]
+    rss = result[1]
+    correctness = result[2]
+    
+    etl_t2 = time()
+}
+    
+if (exists("input_matrix")) {
+    #
+    # Verify learning.
+    #
+    outf = fopen(output_file, "w")
+    
+    in = matrix(0.0, dim_input[1])
+    
+    for (i = 0; i < dim_input[0]; i = i + 1) {
+        if (!exists("dim_ots")) {
+            dim_ots[1] = no
+        }
+        
+        # Assign inputs and outputs.
+        for (j = 0; j < dim_input[1]; j = j + 1) {
+            in[j] = input_matrix[i, j]
+        }
+        
+        etp_t1 = time();
+        if (ofc != "") {
+            out = lmtxProcess(nn, in, dim_input[1], dim_ots[1], af, oaf, of, ofc)
+        } else {
+            out = lmtxProcess(nn, in, dim_input[1], dim_ots[1], af, oaf, of)
+        }
+        etp_t2 = time();
+        
+        fputs(trim(toString(out), "[]") + "\n", outf)
+    }
+    
+    outf = fclose(outf)
+}
+
+# Save the modified network file.
+nn = lmtxSetLabels(nn, labels)
+
+if (ann_output_file != "noname") {
+    lmtxSaveFile(ann_output_file, nn, ann_output_file_type)
+}
+
+# Get the current time...
+etc_t2 = time()
+
+# Save the report file.
+rf = fopen(report_file, "w")
+
+fputs("Epochs: " + epochs + "\n", rf)
+fputs("RSS: " + rss + "\n", rf)
+fputs("Correctness: " + correctness + "\n", rf)
+fputs("ETL: " + (etl_t2 - etl_t1) + " seconds.\n", rf)
+fputs("ETP: " + (etp_t2 - etp_t1) + " seconds.\n", rf)
+fputs("ETC: " + (etc_t2 - etc_t1) + " seconds.\n", rf)
+
+rf = fclose(rf)
+
+# Store the correctness history...
+if (correctness_file != "noname") {
+    corf = fopen(correctness_file, "w")
+    
+    for (i = 1; i <= epochs; i = i + 1) {
+        fputs(sprintf("%d\t%.6f\t%.6f\n", i, corr_matrix[i, 0], corr_matrix[i, 1]), corf)
+    }
+    
+    corf = fclose(corf)
+}
+
+println("Process #" + rank + " Finished.")
+
+# Exit MPI.
+MPI_Finalize();

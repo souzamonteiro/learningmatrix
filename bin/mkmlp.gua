@@ -1,0 +1,227 @@
+#!/usr/local/bin/guash
+#
+# mkmlp.gua
+#
+#     This script create a multilayer perceptron (MLP).
+#
+# Copyright (C) 2016 Roberto Luiz Souza Monteiro
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# RCS: @(#) $Id: mkmlp.gua,v 1.1 2017/01/13 10:38:00 monteiro Exp $
+#
+
+function CNA_SaveFile(filename, adj, type = "edges") {
+    dim_adj = dim(adj)
+    dim_i = dim_adj[0]
+    dim_j = dim_adj[1]
+
+    # Each line in a Pajek files must terminate with CR+LF.
+    # Windows will automaticly converts "\n" to "\r\n", but
+    # Linux will not.
+    if ($SYS_HOST == "linux") {
+        new_line = "\r\n"
+    } else {
+        new_line = "\n"
+    }
+
+    fp = fopen(filename, "w")
+
+    # Save vertices...
+    fputs("*Vertices " + (dim_i - 1) + new_line, fp)
+    for (i = 1; i < dim_i; i = i + 1) {
+        fputs(i + " \"" + adj[i, 0] + "\"" + new_line, fp)
+    }
+
+    # Save edges...
+    if (type == "edges") {
+        fputs("*Edges" + new_line, fp)
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                if (adj[i, j] != 0) {
+                    fputs(i + " " + j + " " + adj[i, j] + new_line, fp)
+                }
+            }
+        }
+    # Save arcs...
+    } elseif (type == "arcs") {
+        fputs("*Arcs" + new_line, fp)
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                if (adj[i, j] != 0) {
+                    fputs(i + " " + j + " " + adj[i, j] + new_line, fp)
+                }
+            }
+        }
+    # Save matrix...
+    } elseif (type == "matrix") {
+        fputs("*Matrix" + new_line, fp)
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                fputs(" " + adj[i, j], fp)
+            }
+            fputs(new_line, fp)
+        }
+    }
+    
+    fp = fclose(fp)
+}
+
+#
+# Configuration variables.
+#
+output_file = "noname"
+output_file_type = "edges"
+# Number of inputs.
+ni = 1
+# Number of outputs.
+no = 1
+# Number of layers.
+nl = 1
+# Number of hidden units.
+nhu = 1
+
+#
+# Main program.
+#
+if (argc < 3) {
+    println("Usage: mkmlp option1 value1 [option1 value1]")
+    exit
+}
+
+i = 2
+
+while (i < argc) {
+    if ((argv[i] == "-h") || (argv[i] == "--help")) {
+        println("Usage: mknet option1 value1 [option1 value1]")
+        println("-h    --help    show the options sumary")
+        println("-o              output file")
+        println("-t              output file type(default=\"edges\")")
+        println("      --ni      number of inputs(default=1)")
+        println("      --no      number of outputs(default=1)")
+        println("      --nl      number of layers(default=1)")
+        println("      --nhu     number of hidden units(default=1)")
+        exit(0)
+    } elseif (argv[i] == "-o") {
+        i = i + 1
+        output_file = argv[i]
+    } elseif (argv[i] == "-t") {
+        i = i + 1
+        output_file_type = argv[i]
+    } elseif (argv[i] == "--ni") {
+        i = i + 1
+        ni = eval(argv[i])
+    } elseif (argv[i] == "--no") {
+        i = i + 1
+        no = eval(argv[i])
+    } elseif (argv[i] == "--nl") {
+        i = i + 1
+        nl = eval(argv[i])
+    } elseif (argv[i] == "--nhu") {
+        i = i + 1
+        nhu = eval(argv[i])
+    }
+    i = i + 1
+} 
+
+println("Generating a multilayer perceptron (MLP) with " + ni + " inputs, " + no + " outputs, " + nl + " layers, " + nhu + " hidden units for layer...")
+
+n = ni + nl * nhu + no
+
+# Create an empty MLP
+adj = matrix(0, n + 1, n + 1)
+
+dim_adj = dim(adj)
+dim_i = dim_adj[0]
+dim_j = dim_adj[1]
+
+i = 1
+j = 1
+lindex = 0
+nindex = 1
+# Create synapses...
+
+# Connect inputs to the first layer...
+nindex = ni
+for (i = 1; i <= ni; i = i + 1) {
+    for (j = 1; j <= nhu; j = j + 1) {
+        adj[i, j + nindex] = 1
+    }
+}
+
+# Connect hidden layers...
+for (l = 1; l < nl; l = l + 1) {
+    n1index = ni + (l - 1) * nhu
+    n2index = ni + l * nhu
+    println(n1index + ", " + n2index)
+    for (i = 1; i <= nhu; i = i + 1) {
+        for (j = 1; j <= nhu; j = j + 1) {
+            adj[i + n1index, j + n2index] = 1
+        }
+        #adj[i + n1index, i + n1index] = 1
+    }
+}
+
+# Connect last layer to outputs...
+n1index = ni + (nl - 1) * nhu
+n2index = ni + nl * nhu
+for (i = 1; i <= nhu; i = i + 1) {
+    for (j = 1; j <= no; j = j + 1) {
+        adj[i + n1index, j + n2index] = 1
+        #adj[j + n2index, j + n2index] = 1
+    }
+    #adj[i + n1index, i + n1index] = 1
+}
+    
+# Add loops (for neural networks). 
+if (ni > 0) {
+    for (i = ni + 1; i < dim_i; i = i + 1) {
+        adj[i, i] = 1
+    }
+}
+
+# Add the neurons labels...
+lindex = 0
+nindex = 1
+for (i = 1; i < dim_i; i = i + 1) {
+    if (lindex == 0) {
+        label = "i" + nindex
+        nindex = nindex + 1
+        if (nindex > ni) {
+            lindex = lindex + 1
+            nindex = 1
+        }
+    } elseif ((lindex > 0) & (lindex <= nl)) {
+        label = "h" + lindex + "," + nindex
+        nindex = nindex + 1
+        if (nindex > nhu) {
+            lindex = lindex + 1
+            nindex = 1
+        }
+    } else {
+        label = "o" + nindex
+        nindex = nindex + 1
+    }
+    adj[0, i] = label
+    adj[i, 0] = label
+}
+
+# Save the network file...
+println("Saving file " + output_file + "...")
+
+if (output_file != "noname") {
+   CNA_SaveFile(output_file, adj, output_file_type)
+}
+

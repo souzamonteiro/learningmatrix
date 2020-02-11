@@ -1,0 +1,6 @@
+Epochs: 2000
+RSS: 7.599
+Correctness: 0
+ETL: 359.64 seconds.
+ETP: 2.5034e-05 seconds.
+ETC: 359.711 seconds.

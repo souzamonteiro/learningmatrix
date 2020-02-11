@@ -1,0 +1,1862 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   xml:space="preserve"
+   width="525"
+   height="743.75"
+   viewBox="0 0 525 743.75"
+   sodipodi:docname="algorithm_learn.svg"
+   inkscape:export-filename="/home/roberto/Arquivos/Desenvolvimento/Monteiro/learningmatrix-2.0/doc/algorithm_learn.png"
+   inkscape:export-xdpi="300"
+   inkscape:export-ydpi="300"><metadata
+     id="metadata8"><rdf:RDF><cc:Work
+         rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+     id="defs6"><clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath16"><path
+         d="m 0,-0.2 419.5,0 0,595.2 L 0,595 0,-0.2 Z"
+         id="path18"
+         inkscape:connector-curvature="0"
+         style="clip-rule:evenodd" /></clipPath></defs><sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1285"
+     inkscape:window-height="849"
+     id="namedview4"
+     showgrid="false"
+     inkscape:zoom="0.94290721"
+     inkscape:cx="250.86505"
+     inkscape:cy="381.32092"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="g10" /><g
+     id="g10"
+     inkscape:groupmode="layer"
+     inkscape:label="algorithm"
+     transform="matrix(1.25,0,0,-1.25,0,743.75)"><g
+       id="g12"><g
+         id="g14"
+         clip-path="url(#clipPath16)"><g
+           id="g20"><text
+             transform="matrix(1,0,0,-1,0.1,589.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text22"><tspan
+               x="0"
+               y="0"
+               id="tspan24">{</tspan></text>
+</g><g
+           id="g26"><text
+             transform="matrix(1,0,0,-1,16.9,581.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text28"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168 172.2 176.39999 180.60001 184.8 189 193.2 197.39999 201.60001 205.8 210 214.2 218.39999 222.60001 226.8 231 235.2 239.39999 243.60001 247.8 252 256.20001 260.39999 264.60001 268.79999 273 277.20001 281.39999 285.60001 289.79999 294 298.20001 302.39999 306.60001 310.79999 315 319.20001 323.39999 327.60001 331.79999 336 340.20001 344.39999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan30">Arguments: nn: learning matrix; in: input training data; out: output training data;</tspan></text>
+</g><g
+           id="g32"><text
+             transform="matrix(1,0,0,-1,16.9,573.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text34"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168 172.2 176.39999 180.60001 184.8 189 193.2 197.39999 201.60001 205.8 210 214.2 218.39999 222.60001 226.8 231 235.2 239.39999 243.60001 247.8 252 256.20001 260.39999 264.60001 268.79999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan36">ni: number of inputs; no: number of outputs; lrate: learning tax;</tspan></text>
+</g><g
+           id="g38"><text
+             transform="matrix(1,0,0,-1,16.9,565.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text40"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168 172.2 176.39999 180.60001 184.8 189 193.2 197.39999 201.60001 205.8 210 214.2 218.39999 222.60001 226.8 231 235.2 239.39999 243.60001 247.8 252 256.20001 260.39999 264.60001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan42">af: activation function; af’: derivative of activation function;</tspan></text>
+</g><g
+           id="g44"><text
+             transform="matrix(1,0,0,-1,16.9,557.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text46"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168 172.2 176.39999 180.60001 184.8 189 193.2 197.39999 201.60001 205.8 210 214.2 218.39999 222.60001 226.8 231 235.2 239.39999 243.60001 247.8 252 256.20001 260.39999 264.60001 268.79999 273 277.20001 281.39999 285.60001 289.79999 294 298.20001 302.39999 306.60001 310.79999 315 319.20001 323.39999 327.60001 331.79999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan48">oaf: output activation function; oaf’: derivative of output activation function.</tspan></text>
+</g><g
+           id="g50"><text
+             transform="matrix(1,0,0,-1,0.1,549.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text52"><tspan
+               x="0"
+               y="0"
+               id="tspan54">}</tspan></text>
+</g><g
+           id="g56"><text
+             transform="matrix(1,0,0,-1,0.1,541.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text58"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4"
+               y="0"
+               sodipodi:role="line"
+               id="tspan60">function</tspan></text>
+</g><g
+           id="g62"><text
+             transform="matrix(1,0,0,-1,37.9,541.4)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text64"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168 172.2 176.39999 180.60001 184.8 189 193.2 197.39999 201.60001 205.8 210 214.2 218.39999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan66">Learn(nn, in, out, ni, no, lrate, af, af’, oaf, oaf’)</tspan></text>
+</g><g
+           id="g68"><text
+             transform="matrix(1,0,0,-1,0.1,533.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text70"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan72">begin</tspan></text>
+</g><g
+           id="g74"><text
+             transform="matrix(1,0,0,-1,16.9,525.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text76"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63"
+               y="0"
+               sodipodi:role="line"
+               id="tspan78">dim_nn = dim(nn)</tspan></text>
+</g><g
+           id="g80"><text
+             transform="matrix(1,0,0,-1,16.9,517.6)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text82"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997"
+               y="0"
+               sodipodi:role="line"
+               id="tspan84">dim_i = dim_nn[0]</tspan></text>
+</g><g
+           id="g86"><text
+             transform="matrix(1,0,0,-1,16.9,509.6)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text88"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997"
+               y="0"
+               sodipodi:role="line"
+               id="tspan90">dim_j = dim_nn[1]</tspan></text>
+</g><g
+           id="g92"><text
+             transform="matrix(1,0,0,-1,16.9,501.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text94"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105"
+               y="0"
+               sodipodi:role="line"
+               id="tspan96">first_out = dim_j - 1 – no</tspan></text>
+</g><g
+           id="g98" /><g
+           id="g100"><text
+             transform="matrix(1,0,0,-1,16.9,485.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text102"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan104">for</tspan></text>
+</g><g
+           id="g106"><text
+             transform="matrix(1,0,0,-1,33.7,485.8)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text108"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21"
+               y="0"
+               sodipodi:role="line"
+               id="tspan110">i = 0 </tspan></text>
+</g><g
+           id="g112"><text
+             transform="matrix(1,0,0,-1,58.9,485.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text114"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan116">to</tspan></text>
+</g><g
+           id="g118"><text
+             transform="matrix(1,0,0,-1,71.5,485.8)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text120"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan122">dim_i – 2 </tspan></text>
+</g><g
+           id="g124"><text
+             transform="matrix(1,0,0,-1,113.5,485.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text126"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan128">step</tspan></text>
+</g><g
+           id="g130"><text
+             transform="matrix(1,0,0,-1,134.5,485.8)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text132"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan134">1 </tspan></text>
+</g><g
+           id="g136"><text
+             transform="matrix(1,0,0,-1,142.9,485.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text138"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan140">do </tspan></text>
+</g><g
+           id="g142"><text
+             transform="matrix(1,0,0,-1,155.5,485.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text144"><tspan
+               x="0"
+               y="0"
+               id="tspan146">{</tspan></text>
+</g><g
+           id="g148"><text
+             transform="matrix(1,0,0,-1,159.7,485.8)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text150"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8"
+               y="0"
+               sodipodi:role="line"
+               id="tspan152">Clear inputs and outputs.</tspan></text>
+</g><g
+           id="g154"><text
+             transform="matrix(1,0,0,-1,264.7,485.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text156"><tspan
+               x="0"
+               y="0"
+               id="tspan158">}</tspan></text>
+</g><g
+           id="g160" /><g
+           id="g162"><text
+             transform="matrix(1,0,0,-1,16.9,477.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text164"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan166">begin</tspan></text>
+</g><g
+           id="g168"><text
+             transform="matrix(1,0,0,-1,33.7,469.9)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text170"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan172">nn[0, i] = 0.0</tspan></text>
+</g><g
+           id="g174"><text
+             transform="matrix(1,0,0,-1,33.7,461.9)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text176"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan178">nn[i, 0] = 0.0</tspan></text>
+</g><g
+           id="g180"><text
+             transform="matrix(1,0,0,-1,33.7,454)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text182"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997"
+               y="0"
+               sodipodi:role="line"
+               id="tspan184">nn[i, dim_j - 1] = 0.0</tspan></text>
+</g><g
+           id="g186"><text
+             transform="matrix(1,0,0,-1,33.7,446)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text188"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997"
+               y="0"
+               sodipodi:role="line"
+               id="tspan190">nn[dim_i - 1, i] = 0.0</tspan></text>
+</g><g
+           id="g192" /><g
+           id="g194"><text
+             transform="matrix(1,0,0,-1,16.9,438.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text196"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan198">end</tspan></text>
+</g><g
+           id="g200" /><g
+           id="g202"><text
+             transform="matrix(1,0,0,-1,16.9,422.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text204"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan206">for</tspan></text>
+</g><g
+           id="g208"><text
+             transform="matrix(1,0,0,-1,33.7,422.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text210"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21"
+               y="0"
+               sodipodi:role="line"
+               id="tspan212">j = 0 </tspan></text>
+</g><g
+           id="g214"><text
+             transform="matrix(1,0,0,-1,58.9,422.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text216"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan218">to</tspan></text>
+</g><g
+           id="g220"><text
+             transform="matrix(1,0,0,-1,71.5,422.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text222"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan224">ni – 1 </tspan></text>
+</g><g
+           id="g226"><text
+             transform="matrix(1,0,0,-1,100.9,422.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text228"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan230">step</tspan></text>
+</g><g
+           id="g232"><text
+             transform="matrix(1,0,0,-1,121.9,422.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text234"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan236">1 </tspan></text>
+</g><g
+           id="g238"><text
+             transform="matrix(1,0,0,-1,130.3,422.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text240"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan242">do </tspan></text>
+</g><g
+           id="g244"><text
+             transform="matrix(1,0,0,-1,142.9,422.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text246"><tspan
+               x="0"
+               y="0"
+               id="tspan248">{</tspan></text>
+</g><g
+           id="g250"><text
+             transform="matrix(1,0,0,-1,147.1,422.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text252"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan254">Assign inputs.</tspan></text>
+</g><g
+           id="g256"><text
+             transform="matrix(1,0,0,-1,205.9,422.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text258"><tspan
+               x="0"
+               y="0"
+               id="tspan260">}</tspan></text>
+</g><g
+           id="g262"><text
+             transform="matrix(1,0,0,-1,33.7,414.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text264"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003"
+               y="0"
+               sodipodi:role="line"
+               id="tspan266">nn[j + 1, 0] = in[j]</tspan></text>
+</g><g
+           id="g268" /><g
+           id="g270"><text
+             transform="matrix(1,0,0,-1,16.9,398.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text272"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan274">for</tspan></text>
+</g><g
+           id="g276"><text
+             transform="matrix(1,0,0,-1,33.7,398.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text278"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42"
+               y="0"
+               sodipodi:role="line"
+               id="tspan280">j = ni + 1 </tspan></text>
+</g><g
+           id="g282"><text
+             transform="matrix(1,0,0,-1,79.9,398.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text284"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan286">to</tspan></text>
+</g><g
+           id="g288"><text
+             transform="matrix(1,0,0,-1,92.5,398.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text290"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan292">dim_j – 2 </tspan></text>
+</g><g
+           id="g294"><text
+             transform="matrix(1,0,0,-1,134.5,398.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text296"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan298">step</tspan></text>
+</g><g
+           id="g300"><text
+             transform="matrix(1,0,0,-1,155.5,398.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text302"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan304">1 </tspan></text>
+</g><g
+           id="g306"><text
+             transform="matrix(1,0,0,-1,163.9,398.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text308"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan310">do </tspan></text>
+</g><g
+           id="g312"><text
+             transform="matrix(1,0,0,-1,176.5,398.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text314"><tspan
+               x="0"
+               y="0"
+               id="tspan316">{</tspan></text>
+</g><g
+           id="g318"><text
+             transform="matrix(1,0,0,-1,180.7,398.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text320"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan322">Calculate the neurons output.</tspan></text>
+</g><g
+           id="g324"><text
+             transform="matrix(1,0,0,-1,302.5,398.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text326"><tspan
+               x="0"
+               y="0"
+               id="tspan328">}</tspan></text>
+</g><g
+           id="g330"><text
+             transform="matrix(1,0,0,-1,16.9,390.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text332"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan334">begin</tspan></text>
+</g><g
+           id="g336"><text
+             transform="matrix(1,0,0,-1,33.7,382.4)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text338"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan340">nn[0, j] = 0.0</tspan></text>
+</g><g
+           id="g342" /><g
+           id="g344"><text
+             transform="matrix(1,0,0,-1,33.7,374.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text346"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan348">for</tspan></text>
+</g><g
+           id="g350"><text
+             transform="matrix(1,0,0,-1,50.5,374.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text352"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21"
+               y="0"
+               sodipodi:role="line"
+               id="tspan354">i = 1 </tspan></text>
+</g><g
+           id="g356"><text
+             transform="matrix(1,0,0,-1,75.7,374.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text358"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan360">to</tspan></text>
+</g><g
+           id="g362"><text
+             transform="matrix(1,0,0,-1,88.3,374.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text364"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan366">dim_i – 2 </tspan></text>
+</g><g
+           id="g368"><text
+             transform="matrix(1,0,0,-1,130.3,374.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text370"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan372">step</tspan></text>
+</g><g
+           id="g374"><text
+             transform="matrix(1,0,0,-1,151.3,374.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text376"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan378">1 </tspan></text>
+</g><g
+           id="g380"><text
+             transform="matrix(1,0,0,-1,159.7,374.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text382"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan384">do </tspan></text>
+</g><g
+           id="g386"><text
+             transform="matrix(1,0,0,-1,172.3,374.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text388"><tspan
+               x="0"
+               y="0"
+               id="tspan390">{</tspan></text>
+</g><g
+           id="g392"><text
+             transform="matrix(1,0,0,-1,176.5,374.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text394"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan396">Weighted sums.</tspan></text>
+</g><g
+           id="g398"><text
+             transform="matrix(1,0,0,-1,235.3,374.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text400"><tspan
+               x="0"
+               y="0"
+               id="tspan402">}</tspan></text>
+</g><g
+           id="g404" /><g
+           id="g406" /><g
+           id="g408"><text
+             transform="matrix(1,0,0,-1,50.5,366.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text410"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan412">if</tspan></text>
+</g><g
+           id="g414"><text
+             transform="matrix(1,0,0,-1,63.1,366.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text416"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21"
+               y="0"
+               sodipodi:role="line"
+               id="tspan418">i &lt; j </tspan></text>
+</g><g
+           id="g420"><text
+             transform="matrix(1,0,0,-1,88.3,366.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text422"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan424">then</tspan></text>
+</g><g
+           id="g426" /><g
+           id="g428" /><g
+           id="g430"><text
+             transform="matrix(1,0,0,-1,67.3,358.6)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text432"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan434">if</tspan></text>
+</g><g
+           id="g436"><text
+             transform="matrix(1,0,0,-1,79.9,358.6)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text438"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan440">nn[i, j] != 0 </tspan></text>
+</g><g
+           id="g442"><text
+             transform="matrix(1,0,0,-1,138.7,358.6)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text444"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan446">then</tspan></text>
+</g><g
+           id="g448" /><g
+           id="g450"><text
+             transform="matrix(1,0,0,-1,159.7,358.6)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text452"><tspan
+               x="0"
+               y="0"
+               id="tspan454">{</tspan></text>
+</g><g
+           id="g456"><text
+             transform="matrix(1,0,0,-1,163.9,358.6)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text458"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8"
+               y="0"
+               sodipodi:role="line"
+               id="tspan460">x = x1 * w1 + x2 * w2 + …</tspan></text>
+</g><g
+           id="g462"><text
+             transform="matrix(1,0,0,-1,268.9,358.6)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text464"><tspan
+               x="0"
+               y="0"
+               id="tspan466">}</tspan></text>
+</g><g
+           id="g468" /><g
+           id="g470"><text
+             transform="matrix(1,0,0,-1,84.1,350.6)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text472"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168"
+               y="0"
+               sodipodi:role="line"
+               id="tspan474">nn[0, j] = nn[0, j] + nn[i, j] * nn[i, 0]</tspan></text>
+</g><g
+           id="g476" /><g
+           id="g478"><text
+             transform="matrix(1,0,0,-1,50.5,342.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text480"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan482">else if</tspan></text>
+</g><g
+           id="g484"><text
+             transform="matrix(1,0,0,-1,84.1,342.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text486"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan488">i == j </tspan></text>
+</g><g
+           id="g490"><text
+             transform="matrix(1,0,0,-1,113.5,342.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text492"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan494">then</tspan></text>
+</g><g
+           id="g496" /><g
+           id="g498" /><g
+           id="g500"><text
+             transform="matrix(1,0,0,-1,67.3,334.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text502"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan504">if</tspan></text>
+</g><g
+           id="g506"><text
+             transform="matrix(1,0,0,-1,79.9,334.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text508"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002"
+               y="0"
+               sodipodi:role="line"
+               id="tspan510">nn[i, j] != 0 then</tspan></text>
+</g><g
+           id="g512"><text
+             transform="matrix(1,0,0,-1,84.1,326.8)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text514"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8"
+               y="0"
+               sodipodi:role="line"
+               id="tspan516">nn[0, j] = nn[0, j] + nn[i, j]</tspan></text>
+</g><g
+           id="g518"><text
+             transform="matrix(1,0,0,-1,50.5,318.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text520"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan522">else</tspan></text>
+</g><g
+           id="g524" /><g
+           id="g526" /><g
+           id="g528"><text
+             transform="matrix(1,0,0,-1,67.3,310.9)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text530"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan532">break</tspan></text>
+</g><g
+           id="g534" /><g
+           id="g536"><text
+             transform="matrix(1,0,0,-1,33.7,302.9)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text538"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan540">if</tspan></text>
+</g><g
+           id="g542"><text
+             transform="matrix(1,0,0,-1,46.3,302.9)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text544"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan546">j &lt; first_out </tspan></text>
+</g><g
+           id="g548"><text
+             transform="matrix(1,0,0,-1,105.1,302.9)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text550"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan552">then </tspan></text>
+</g><g
+           id="g554"><text
+             transform="matrix(1,0,0,-1,126.1,302.9)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text556"><tspan
+               x="0"
+               y="0"
+               id="tspan558">{</tspan></text>
+</g><g
+           id="g560"><text
+             transform="matrix(1,0,0,-1,130.3,302.9)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text562"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003"
+               y="0"
+               sodipodi:role="line"
+               id="tspan564">Activation function.</tspan></text>
+</g><g
+           id="g566"><text
+             transform="matrix(1,0,0,-1,214.3,302.9)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text568"><tspan
+               x="0"
+               y="0"
+               id="tspan570">}</tspan></text>
+</g><g
+           id="g572"><text
+             transform="matrix(1,0,0,-1,33.7,295)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text574"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan576">begin</tspan></text>
+</g><g
+           id="g578"><text
+             transform="matrix(1,0,0,-1,50.5,287)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text580"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8"
+               y="0"
+               sodipodi:role="line"
+               id="tspan582">nn[j, 0] = @af(nn[0, j]) </tspan></text>
+</g><g
+           id="g584"><text
+             transform="matrix(1,0,0,-1,155.5,287)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text586"><tspan
+               x="0"
+               y="0"
+               id="tspan588">{</tspan></text>
+</g><g
+           id="g590"><text
+             transform="matrix(1,0,0,-1,159.7,287)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text592"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan594">Calculate </tspan></text>
+</g><g
+           id="g596"><text
+             transform="matrix(1,0,0,-1,201.7,287)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text598"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan600">y = f(x).</tspan></text>
+</g><g
+           id="g602"><text
+             transform="matrix(1,0,0,-1,239.5,287)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text604"><tspan
+               x="0"
+               y="0"
+               id="tspan606">}</tspan></text>
+</g><g
+           id="g608"><text
+             transform="matrix(1,0,0,-1,50.5,279.1)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text610"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan612">nn[j, dim_j - 1] = @af’(nn[0, j]) </tspan></text>
+</g><g
+           id="g614"><text
+             transform="matrix(1,0,0,-1,193.3,279.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text616"><tspan
+               x="0"
+               y="0"
+               id="tspan618">{</tspan></text>
+</g><g
+           id="g620"><text
+             transform="matrix(1,0,0,-1,197.5,279.1)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text622"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan624">Calculate </tspan></text>
+</g><g
+           id="g626"><text
+             transform="matrix(1,0,0,-1,239.5,279.1)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text628"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4"
+               y="0"
+               sodipodi:role="line"
+               id="tspan630">df(x)/dx</tspan></text>
+</g><g
+           id="g632"><text
+             transform="matrix(1,0,0,-1,273.1,279.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text634"><tspan
+               x="0"
+               y="0"
+               id="tspan636">}</tspan></text>
+</g><g
+           id="g638"><text
+             transform="matrix(1,0,0,-1,33.7,271.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text640"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan642">end</tspan></text>
+</g><g
+           id="g644" /><g
+           id="g646"><text
+             transform="matrix(1,0,0,-1,33.7,263.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text648"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan650">else </tspan></text>
+</g><g
+           id="g652"><text
+             transform="matrix(1,0,0,-1,54.7,263.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text654"><tspan
+               x="0"
+               y="0"
+               id="tspan656">{</tspan></text>
+</g><g
+           id="g658"><text
+             transform="matrix(1,0,0,-1,58.9,263.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text660"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168"
+               y="0"
+               sodipodi:role="line"
+               id="tspan662">Activation function for the output layer.</tspan></text>
+</g><g
+           id="g664"><text
+             transform="matrix(1,0,0,-1,231.1,263.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text666"><tspan
+               x="0"
+               y="0"
+               id="tspan668">}</tspan></text>
+</g><g
+           id="g670"><text
+             transform="matrix(1,0,0,-1,33.7,255.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text672"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan674">begin</tspan></text>
+</g><g
+           id="g676"><text
+             transform="matrix(1,0,0,-1,50.5,247.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text678"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105"
+               y="0"
+               sodipodi:role="line"
+               id="tspan680">nn[j, 0] = @oaf(nn[0, j]) </tspan></text>
+</g><g
+           id="g682"><text
+             transform="matrix(1,0,0,-1,159.7,247.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text684"><tspan
+               x="0"
+               y="0"
+               id="tspan686">{</tspan></text>
+</g><g
+           id="g688"><text
+             transform="matrix(1,0,0,-1,163.9,247.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text690"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan692">Calculate </tspan></text>
+</g><g
+           id="g694"><text
+             transform="matrix(1,0,0,-1,205.9,247.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text696"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan698">y = f(x).</tspan></text>
+</g><g
+           id="g700"><text
+             transform="matrix(1,0,0,-1,243.7,247.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text702"><tspan
+               x="0"
+               y="0"
+               id="tspan704">}</tspan></text>
+</g><g
+           id="g706"><text
+             transform="matrix(1,0,0,-1,50.5,239.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text708"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8"
+               y="0"
+               sodipodi:role="line"
+               id="tspan710">nn[j, dim_j - 1] = @oaf’(nn[0, j]) </tspan></text>
+</g><g
+           id="g712"><text
+             transform="matrix(1,0,0,-1,197.5,239.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text714"><tspan
+               x="0"
+               y="0"
+               id="tspan716">{</tspan></text>
+</g><g
+           id="g718"><text
+             transform="matrix(1,0,0,-1,201.7,239.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text720"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan722">Calculate </tspan></text>
+</g><g
+           id="g724"><text
+             transform="matrix(1,0,0,-1,243.7,239.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text726"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4"
+               y="0"
+               sodipodi:role="line"
+               id="tspan728">df(x)/dx</tspan></text>
+</g><g
+           id="g730"><text
+             transform="matrix(1,0,0,-1,277.3,239.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text732"><tspan
+               x="0"
+               y="0"
+               id="tspan734">}</tspan></text>
+</g><g
+           id="g736" /><g
+           id="g738"><text
+             transform="matrix(1,0,0,-1,33.7,231.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text740"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan742">end</tspan></text>
+</g><g
+           id="g744" /><g
+           id="g746"><text
+             transform="matrix(1,0,0,-1,16.9,223.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text748"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan750">end</tspan></text>
+</g><g
+           id="g752" /><g
+           id="g754"><text
+             transform="matrix(1,0,0,-1,16.9,207.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text756"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan758">for</tspan></text>
+</g><g
+           id="g760"><text
+             transform="matrix(1,0,0,-1,33.7,207.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text762"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21"
+               y="0"
+               sodipodi:role="line"
+               id="tspan764">i = 0 </tspan></text>
+</g><g
+           id="g766"><text
+             transform="matrix(1,0,0,-1,58.9,207.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text768"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan770">to</tspan></text>
+</g><g
+           id="g772"><text
+             transform="matrix(1,0,0,-1,71.5,207.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text774"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan776">no - 1 </tspan></text>
+</g><g
+           id="g778"><text
+             transform="matrix(1,0,0,-1,100.9,207.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text780"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan782">step</tspan></text>
+</g><g
+           id="g784"><text
+             transform="matrix(1,0,0,-1,121.9,207.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text786"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan788">1 </tspan></text>
+</g><g
+           id="g790"><text
+             transform="matrix(1,0,0,-1,130.3,207.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text792"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan794">do </tspan></text>
+</g><g
+           id="g796"><text
+             transform="matrix(1,0,0,-1,142.9,207.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text798"><tspan
+               x="0"
+               y="0"
+               id="tspan800">{</tspan></text>
+</g><g
+           id="g802"><text
+             transform="matrix(1,0,0,-1,147.1,207.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text804"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8"
+               y="0"
+               sodipodi:role="line"
+               id="tspan806">Calculate delta for the output neurons.}</tspan></text>
+</g><g
+           id="g808"><text
+             transform="matrix(1,0,0,-1,33.7,199.6)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text810"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168 172.2 176.39999 180.60001 184.8 189 193.2 197.39999 201.60001 205.8 210 214.2 218.39999 222.60001 226.8 231 235.2 239.39999 243.60001 247.8 252"
+               y="0"
+               sodipodi:role="line"
+               id="tspan812">nn[dim_i - 1, first_out + i] = out[i] - nn[first_out + i, 0] </tspan></text>
+</g><g
+           id="g814"><text
+             transform="matrix(1,0,0,-1,289.9,199.6)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text816"><tspan
+               x="0"
+               y="0"
+               id="tspan818">{</tspan></text>
+</g><g
+           id="g820"><text
+             transform="matrix(1,0,0,-1,294.1,199.6)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text822"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan824">d = z – y</tspan></text>
+</g><g
+           id="g826"><text
+             transform="matrix(1,0,0,-1,331.9,199.6)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text828"><tspan
+               x="0"
+               y="0"
+               id="tspan830">}</tspan></text>
+</g><g
+           id="g832" /><g
+           id="g834"><text
+             transform="matrix(1,0,0,-1,16.9,183.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text836"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan838">for</tspan></text>
+</g><g
+           id="g840"><text
+             transform="matrix(1,0,0,-1,33.7,183.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text842"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan844">j = dim_j – 2 </tspan></text>
+</g><g
+           id="g846"><text
+             transform="matrix(1,0,0,-1,92.5,183.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text848"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan850">to</tspan></text>
+</g><g
+           id="g852"><text
+             transform="matrix(1,0,0,-1,105.1,183.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text854"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan856">j ni + 1 </tspan></text>
+</g><g
+           id="g858"><text
+             transform="matrix(1,0,0,-1,142.9,183.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text860"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan862">step</tspan></text>
+</g><g
+           id="g864"><text
+             transform="matrix(1,0,0,-1,163.9,183.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text866"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan868">– 1 </tspan></text>
+</g><g
+           id="g870"><text
+             transform="matrix(1,0,0,-1,180.7,183.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text872"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan874">do </tspan></text>
+</g><g
+           id="g876"><text
+             transform="matrix(1,0,0,-1,193.3,183.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text878"><tspan
+               x="0"
+               y="0"
+               id="tspan880">{</tspan></text>
+</g><g
+           id="g882"><text
+             transform="matrix(1,0,0,-1,197.5,183.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text884"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8"
+               y="0"
+               sodipodi:role="line"
+               id="tspan886">Calculate delta for hidden neurons.</tspan></text>
+</g><g
+           id="g888"><text
+             transform="matrix(1,0,0,-1,344.5,183.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text890"><tspan
+               x="0"
+               y="0"
+               id="tspan892">}</tspan></text>
+</g><g
+           id="g894" /><g
+           id="g896" /><g
+           id="g898"><text
+             transform="matrix(1,0,0,-1,33.7,175.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text900"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan902">for</tspan></text>
+</g><g
+           id="g904"><text
+             transform="matrix(1,0,0,-1,50.5,175.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text906"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42"
+               y="0"
+               sodipodi:role="line"
+               id="tspan908">i = ni + 1 </tspan></text>
+</g><g
+           id="g910"><text
+             transform="matrix(1,0,0,-1,96.7,175.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text912"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan914">to</tspan></text>
+</g><g
+           id="g916"><text
+             transform="matrix(1,0,0,-1,109.3,175.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text918"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997"
+               y="0"
+               sodipodi:role="line"
+               id="tspan920">i dim_i - 2 – no </tspan></text>
+</g><g
+           id="g922"><text
+             transform="matrix(1,0,0,-1,180.7,175.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text924"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan926">step</tspan></text>
+</g><g
+           id="g928"><text
+             transform="matrix(1,0,0,-1,201.7,175.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text930"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan932">1 </tspan></text>
+</g><g
+           id="g934"><text
+             transform="matrix(1,0,0,-1,210.1,175.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text936"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan938">do</tspan></text>
+</g><g
+           id="g940" /><g
+           id="g942"><text
+             transform="matrix(1,0,0,-1,33.7,167.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text944"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan946">begin</tspan></text>
+</g><g
+           id="g948" /><g
+           id="g950"><text
+             transform="matrix(1,0,0,-1,50.5,159.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text952"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan954">if</tspan></text>
+</g><g
+           id="g956"><text
+             transform="matrix(1,0,0,-1,63.1,159.8)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text958"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan960">i == j </tspan></text>
+</g><g
+           id="g962"><text
+             transform="matrix(1,0,0,-1,92.5,159.8)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text964"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan966">then</tspan></text>
+</g><g
+           id="g968"><text
+             transform="matrix(1,0,0,-1,67.3,151.9)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text970"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan972">break</tspan></text>
+</g><g
+           id="g974" /><g
+           id="g976"><text
+             transform="matrix(1,0,0,-1,50.5,143.9)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text978"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan980">if</tspan></text>
+</g><g
+           id="g982"><text
+             transform="matrix(1,0,0,-1,63.1,143.9)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text984"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan986">nn[i, j] != 0 </tspan></text>
+</g><g
+           id="g988"><text
+             transform="matrix(1,0,0,-1,121.9,143.9)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text990"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan992">then </tspan></text>
+</g><g
+           id="g994"><text
+             transform="matrix(1,0,0,-1,142.9,143.9)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text996"><tspan
+               x="0"
+               y="0"
+               id="tspan998">{</tspan></text>
+</g><g
+           id="g1000"><text
+             transform="matrix(1,0,0,-1,147.1,143.9)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1002"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1004">d1 = w1 * d2 + w2 * d2 + ...</tspan></text>
+</g><g
+           id="g1006"><text
+             transform="matrix(1,0,0,-1,264.7,143.9)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1008"><tspan
+               x="0"
+               y="0"
+               id="tspan1010">}</tspan></text>
+</g><g
+           id="g1012"><text
+             transform="matrix(1,0,0,-1,67.3,136)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1014"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168 172.2 176.39999 180.60001 184.8 189 193.2 197.39999 201.60001 205.8 210 214.2 218.39999 222.60001 226.8 231 235.2 239.39999 243.60001 247.8 252 256.20001 260.39999 264.60001 268.79999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1016">nn[dim_i - 1, i] = nn[dim_i - 1, i] + nn[i, j] * nn[dim_i - 1, j]</tspan></text>
+</g><g
+           id="g1018" /><g
+           id="g1020"><text
+             transform="matrix(1,0,0,-1,33.7,128)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1022"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1024">end</tspan></text>
+</g><g
+           id="g1026" /><g
+           id="g1028"><text
+             transform="matrix(1,0,0,-1,16.9,112.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1030"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1032">for</tspan></text>
+</g><g
+           id="g1034"><text
+             transform="matrix(1,0,0,-1,33.7,112.1)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1036"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1038">j = no + 1 </tspan></text>
+</g><g
+           id="g1040"><text
+             transform="matrix(1,0,0,-1,79.9,112.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1042"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1044">to</tspan></text>
+</g><g
+           id="g1046"><text
+             transform="matrix(1,0,0,-1,92.5,112.1)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1048"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1050">dim_j – 2 </tspan></text>
+</g><g
+           id="g1052"><text
+             transform="matrix(1,0,0,-1,134.5,112.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1054"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1056">step</tspan></text>
+</g><g
+           id="g1058"><text
+             transform="matrix(1,0,0,-1,155.5,112.1)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1060"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1062">1 </tspan></text>
+</g><g
+           id="g1064"><text
+             transform="matrix(1,0,0,-1,163.9,112.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1066"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1068">do </tspan></text>
+</g><g
+           id="g1070"><text
+             transform="matrix(1,0,0,-1,176.5,112.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1072"><tspan
+               x="0"
+               y="0"
+               id="tspan1074">{</tspan></text>
+</g><g
+           id="g1076"><text
+             transform="matrix(1,0,0,-1,180.7,112.1)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1078"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1080">Adjust weights.</tspan></text>
+</g><g
+           id="g1082"><text
+             transform="matrix(1,0,0,-1,243.7,112.1)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1084"><tspan
+               x="0"
+               y="0"
+               id="tspan1086">}</tspan></text>
+</g><g
+           id="g1088" /><g
+           id="g1090"><text
+             transform="matrix(1,0,0,-1,33.7,104.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1092"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1094">for</tspan></text>
+</g><g
+           id="g1096"><text
+             transform="matrix(1,0,0,-1,50.5,104.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1098"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1100">i = 1 </tspan></text>
+</g><g
+           id="g1102"><text
+             transform="matrix(1,0,0,-1,75.7,104.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1104"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1106">to</tspan></text>
+</g><g
+           id="g1108"><text
+             transform="matrix(1,0,0,-1,88.3,104.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1110"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1112">dim_i - 2 – no </tspan></text>
+</g><g
+           id="g1114"><text
+             transform="matrix(1,0,0,-1,151.3,104.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1116"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1118">step</tspan></text>
+</g><g
+           id="g1120"><text
+             transform="matrix(1,0,0,-1,172.3,104.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1122"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1124">1 </tspan></text>
+</g><g
+           id="g1126"><text
+             transform="matrix(1,0,0,-1,180.7,104.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1128"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1130">do</tspan></text>
+</g><g
+           id="g1132" /><g
+           id="g1134"><text
+             transform="matrix(1,0,0,-1,50.5,96.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1136"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1138">if</tspan></text>
+</g><g
+           id="g1140"><text
+             transform="matrix(1,0,0,-1,63.1,96.2)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1142"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1144">i &lt; j </tspan></text>
+</g><g
+           id="g1146"><text
+             transform="matrix(1,0,0,-1,88.3,96.2)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1148"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1150">then</tspan></text>
+</g><g
+           id="g1152" /><g
+           id="g1154"><text
+             transform="matrix(1,0,0,-1,67.3,88.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1156"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1158">if</tspan></text>
+</g><g
+           id="g1160"><text
+             transform="matrix(1,0,0,-1,79.9,88.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1162"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1164">nn[i, j] != 0 </tspan></text>
+</g><g
+           id="g1166"><text
+             transform="matrix(1,0,0,-1,138.7,88.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1168"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1170">then</tspan></text>
+</g><g
+           id="g1172" /><g
+           id="g1174"><text
+             transform="matrix(1,0,0,-1,159.7,88.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1176"><tspan
+               x="0"
+               y="0"
+               id="tspan1178">{</tspan></text>
+</g><g
+           id="g1180"><text
+             transform="matrix(1,0,0,-1,163.9,88.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1182"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1184">w1 = w1 + n * d * df(x)/dx * x1</tspan></text>
+</g><g
+           id="g1186"><text
+             transform="matrix(1,0,0,-1,294.1,88.3)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1188"><tspan
+               x="0"
+               y="0"
+               id="tspan1190">}</tspan></text>
+</g><g
+           id="g1192" /><g
+           id="g1194"><text
+             transform="matrix(1,0,0,-1,84.1,80.3)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1196"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168 172.2 176.39999 180.60001 184.8 189 193.2 197.39999 201.60001 205.8 210 214.2 218.39999 222.60001 226.8 231 235.2 239.39999 243.60001 247.8 252 256.20001 260.39999 264.60001 268.79999 273 277.20001 281.39999 285.60001 289.79999 294 298.20001 302.39999 306.60001 310.79999 315"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1198">nn[i, j] = nn[i, j] + lrate * nn[dim_i - 1, j] * nn[j, dim_j - 1] * nn[i, 0]</tspan></text>
+</g><g
+           id="g1200" /><g
+           id="g1202"><text
+             transform="matrix(1,0,0,-1,50.5,72.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1204"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1206">else if</tspan></text>
+</g><g
+           id="g1208"><text
+             transform="matrix(1,0,0,-1,84.1,72.4)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1210"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1212">i == j </tspan></text>
+</g><g
+           id="g1214"><text
+             transform="matrix(1,0,0,-1,113.5,72.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1216"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1218">then </tspan></text>
+</g><g
+           id="g1220"><text
+             transform="matrix(1,0,0,-1,134.5,72.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1222"><tspan
+               x="0"
+               y="0"
+               id="tspan1224">{</tspan></text>
+</g><g
+           id="g1226"><text
+             transform="matrix(1,0,0,-1,138.7,72.4)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1228"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1230">Biases.</tspan></text>
+</g><g
+           id="g1232"><text
+             transform="matrix(1,0,0,-1,168.1,72.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#6666ff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1234"><tspan
+               x="0"
+               y="0"
+               id="tspan1236">}</tspan></text>
+</g><g
+           id="g1238" /><g
+           id="g1240"><text
+             transform="matrix(1,0,0,-1,67.3,64.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1242"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1244">if</tspan></text>
+</g><g
+           id="g1246"><text
+             transform="matrix(1,0,0,-1,79.9,64.4)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1248"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1250">nn[i, j] != 0 </tspan></text>
+</g><g
+           id="g1252"><text
+             transform="matrix(1,0,0,-1,138.7,64.4)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1254"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1256">then</tspan></text>
+</g><g
+           id="g1258" /><g
+           id="g1260" /><g
+           id="g1262"><text
+             transform="matrix(1,0,0,-1,84.1,56.5)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1264"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001 29.4 33.599998 37.799999 42 46.200001 50.400002 54.599998 58.799999 63 67.199997 71.400002 75.599998 79.800003 84 88.199997 92.400002 96.599998 100.8 105 109.2 113.4 117.6 121.8 126 130.2 134.39999 138.60001 142.8 147 151.2 155.39999 159.60001 163.8 168 172.2 176.39999 180.60001 184.8 189 193.2 197.39999 201.60001 205.8 210 214.2 218.39999 222.60001 226.8 231 235.2 239.39999 243.60001 247.8 252 256.20001 260.39999 264.60001 268.79999 273 277.20001 281.39999 285.60001 289.79999 294"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1266">nn[i, j] = nn[i, j] + lrate * nn[dim_i - 1, j] * nn[j, dim_j - 1] * 1.0</tspan></text>
+</g><g
+           id="g1268" /><g
+           id="g1270"><text
+             transform="matrix(1,0,0,-1,50.5,48.5)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1272"><tspan
+               x="0 4.1999998 8.3999996 12.6"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1274">else</tspan></text>
+</g><g
+           id="g1276"><text
+             transform="matrix(1,0,0,-1,67.3,40.6)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1278"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1280">break</tspan></text>
+</g><g
+           id="g1282" /><g
+           id="g1284"><text
+             transform="matrix(1,0,0,-1,16.9,24.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1286"><tspan
+               x="0 4.1999998 8.3999996 12.6 16.799999 21 25.200001"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1288">return </tspan></text>
+</g><g
+           id="g1290"><text
+             transform="matrix(1,0,0,-1,46.3,24.7)"
+             style="font-variant:normal;font-weight:normal;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPSMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1292"><tspan
+               x="0 4.1999998"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1294">nn</tspan></text>
+</g><g
+           id="g1296"><text
+             transform="matrix(1,0,0,-1,0.1,16.7)"
+             style="font-variant:normal;font-weight:bold;font-size:7px;font-family:'Courier New';-inkscape-font-specification:CourierNewPS-BoldMT;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+             id="text1298"><tspan
+               x="0 4.1999998 8.3999996"
+               y="0"
+               sodipodi:role="line"
+               id="tspan1300">end</tspan></text>
+</g></g></g></g></svg>

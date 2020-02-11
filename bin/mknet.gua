@@ -1,0 +1,522 @@
+#!/usr/local/bin/guash
+#
+# mknet.gua
+#
+#     This script create artificial networks.
+#
+# Copyright (C) 2012 Roberto Luiz Souza Monteiro
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# RCS: @(#) $Id: mknet.gua,v 1.6 2017/01/12 14:31:00 monteiro Exp $
+#
+
+function CNA_SaveFile(filename, adj, type = "edges") {
+    dim_adj = dim(adj)
+    dim_i = dim_adj[0]
+    dim_j = dim_adj[1]
+
+    # Each line in a Pajek files must terminate with CR+LF.
+    # Windows will automaticly converts "\n" to "\r\n", but
+    # Linux will not.
+    if ($SYS_HOST == "linux") {
+        new_line = "\r\n"
+    } else {
+        new_line = "\n"
+    }
+
+    fp = fopen(filename, "w")
+
+    # Save vertices...
+    fputs("*Vertices " + (dim_i - 1) + new_line, fp)
+    for (i = 1; i < dim_i; i = i + 1) {
+        fputs(i + " \"" + adj[i, 0] + "\"" + new_line, fp)
+    }
+
+    # Save edges...
+    if (type == "edges") {
+        fputs("*Edges" + new_line, fp)
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                if (adj[i, j] != 0) {
+                    fputs(i + " " + j + " " + adj[i, j] + new_line, fp)
+                }
+            }
+        }
+    # Save arcs...
+    } elseif (type == "arcs") {
+        fputs("*Arcs" + new_line, fp)
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                if (adj[i, j] != 0) {
+                    fputs(i + " " + j + " " + adj[i, j] + new_line, fp)
+                }
+            }
+        }
+    # Save matrix...
+    } elseif (type == "matrix") {
+        fputs("*Matrix" + new_line, fp)
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                fputs(" " + adj[i, j], fp)
+            }
+            fputs(new_line, fp)
+        }
+    }
+    
+    fp = fclose(fp)
+}
+
+#
+# Configuration variables.
+#
+output_file = "noname"
+output_file_type = "edges"
+log_file = "noname"
+prefix = "sample"
+nfiles = 1
+index_from = 1
+index_to = 1
+index_in = 1
+# Number of vertices.
+n = 0
+# Number of edges.
+m = 0
+# Edge probability.
+p = 0
+# Average degree.
+d = 0
+# Number of input neurons.
+ni = 0
+# Average degree increment step.
+degree_step = 0
+# Graph topology.
+topology = "complete"
+# Use the time as seed to random number generation.
+tseed = FALSE
+
+#
+# Main program.
+#
+if (argc < 3) {
+    println("Usage: mknet option1 value1 [option1 value1]")
+    exit
+}
+
+i = 2
+
+while (i < argc) {
+    if ((argv[i] == "-h") || (argv[i] == "--help")) {
+        println("Usage: mknet option1 value1 [option1 value1]")
+        println("-h    --help        show the options sumary")
+        println("-o                  output file")
+        println("-t                  output file type(default=\"edges\")")
+        println("-l                  log file")
+        println("      --prefix      file name prefix for multiple file creation(default=sample)")
+        println("      --nfiles      number of files for multiple file creation")
+        println("      --from        first file index for multiple file creation")
+        println("      --to          last file index for multiple file creation")
+        println("      --in          total number of files in the file set")
+        println("-n                  number of vertices(default=0)")
+        println("-m                  number of edges(default=0)")
+        println("-p                  edge probability(default=0)")
+        println("-d                  average degree(default=0)")
+        println("      --ni          number of input neurons(default=0)")
+        println("      --step        average degree increment step(default=0)")
+        println("      --topology    graph topology(default=\"complete\")")
+        println("      --tseed       use the time as seed to random number generation")
+        exit(0)
+    } elseif (argv[i] == "-o") {
+        i = i + 1
+        output_file = argv[i]
+    } elseif (argv[i] == "-t") {
+        i = i + 1
+        output_file_type = argv[i]
+    } elseif (argv[i] == "-l") {
+        i = i + 1
+        log_file = argv[i]
+    } elseif (argv[i] == "--prefix") {
+        i = i + 1
+        prefix = argv[i]
+    } elseif (argv[i] == "--nfiles") {
+        i = i + 1
+        nfiles = eval(argv[i])
+    } elseif (argv[i] == "--from") {
+        i = i + 1
+        index_from = eval(argv[i])
+    } elseif (argv[i] == "--to") {
+        i = i + 1
+        index_to = eval(argv[i])
+    } elseif (argv[i] == "--in") {
+        i = i + 1
+        index_in = eval(argv[i])
+    } elseif (argv[i] == "-n") {
+        i = i + 1
+        n = eval(argv[i])
+    } elseif (argv[i] == "-m") {
+        i = i + 1
+        m = eval(argv[i])
+    } elseif (argv[i] == "-p") {
+        i = i + 1
+        p = eval(argv[i])
+    } elseif (argv[i] == "-d") {
+        i = i + 1
+        d = eval(argv[i])
+    } elseif (argv[i] == "--ni") {
+        i = i + 1
+        ni = eval(argv[i])
+    } elseif (argv[i] == "--step") {
+        i = i + 1
+        degree_step = eval(argv[i])
+    } elseif (argv[i] == "--topology") {
+        i = i + 1
+        topology = argv[i]
+    } elseif (argv[i] == "--tseed") {
+        tseed = TRUE
+    }
+    i = i + 1
+} 
+
+println("Generating " + nfiles + " samples, with " + topology + " topology, each one with " + n + " vertices")
+if (m > 0) {
+print(" and " + m + " edges")
+}
+if (p > 0) {
+    if (topology == "smallworld") {
+        print(" and rewire probability equal " + (p * 100) + "%")
+    } else {
+        print(" and edge probability equal " + (p * 100) + "%")
+    }
+}
+if (d > 0) {
+print(" and average degree equal " + d)
+}
+println("...\n")
+
+t1 = time();
+
+# Create the log file...
+if (log_file != "noname") {
+    fl = fopen(log_file, "w")
+}
+
+# Calculate the file index number range...
+if (index_from < 1) {
+    index_from = 1
+}
+if (index_to <= 1) {
+    if (nfiles > 1) {
+        index_to = index_from + nfiles - 1
+    }
+}
+nfiles = index_to - index_from + 1
+if (index_in <= 1) {
+    index_in = nfiles
+}
+
+if (tseed) {
+    srandom(time)
+}
+
+for (nf = index_from; nf <= index_to; nf = nf + 1) {
+    println("Generating sample " + nf + "...")
+    
+    # Get the current time...
+    ts1 = time();
+    
+    if (nfiles > 1) {
+        output_file = prefix + "-" + sprintf("%0" + length(toString(index_in)) + "." + length(toString(index_in)) + "d", nf) + ".net"
+    }
+    
+    # Create a complete graph...
+    if (topology == "complete") {
+        adj = matrix(1, n + 1, n + 1)
+    # Create an empty network...
+    } else {
+        adj = matrix(0, n + 1, n + 1)
+    }
+    
+    dim_adj = dim(adj)
+    dim_i = dim_adj[0]
+    dim_j = dim_adj[1]
+    
+    # Create a random graph...
+    if (topology == "random") {
+        # Calculate the edge probability...
+        if (d > 0) {
+            p = d / (n - 1.0)
+        }
+        
+        # Calculate the number of edge...
+        if ((m == 0) && (p > 0)) {
+            e = n / 2.0 * (n - 1) * p
+        } else {
+            e = m
+        }
+        
+        while (e > 0) {
+            i = roundl(random() * n)
+            j = roundl(random() * n)
+            
+            if (!((i == j) || (i == 0) || (j == 0))) {
+                if ((adj[i, j] == 0) && (adj[j, i] == 0)) {
+                    adj[i, j] = 1
+                    e = e - 1
+                }
+            }
+        }
+    # Create a small world network...
+    } elseif (topology == "smallworld") {
+        # Create the initial random network...
+        for (i = 1; i < dim_i; i = i + 1) {
+            while (TRUE) {
+                ki = count(adj, i, 1, i, dim_j - 1)
+                
+                if (ki < d) {
+                    j = roundl(random() * n)
+                    
+                    if ((j != 0) && (i != j)) {
+                        adj[i, j] = 1
+                        adj[j, i] = 1
+                    }
+                } else {
+                    break
+                }
+            }
+        }
+        
+        # Rewire network with edge probability p...
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                if (adj[i, j] == 1) {
+                    pij = random()
+                    
+                    if (pij < p) {
+                        while (TRUE) {
+                            k = roundl(random() * n)
+                            
+                            if ((k != 0) && (i != k) && (adj[i, k] == 0)) {
+                                adj[i, j] = 0
+                                adj[j, i] = 0
+                                
+                                adj[i, k] = 1
+                                adj[k, i] = 1
+                                
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    # Create a scale-free network...
+    } elseif (topology == "scalefree") {
+        # Create the initial random network...
+        for (i = 1; i < dim_i; i = i + 1) {
+            while (TRUE) {
+                ki = count(adj, i, 1, i, dim_j - 1)
+                
+                if (ki == 0) {
+                    j = roundl(random() * n)
+                    
+                    if ((j != 0) && (i != j)) {
+                        adj[i, j] = 1
+                        adj[j, i] = 1
+                        
+                        break
+                    }
+                } else {
+                    break
+                }
+            }
+        }
+        
+        # Add new edges with probability p...
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                if ((i != j) && (adj[i, j] == 0)) {
+                    ki = count(adj, i, 1, i, dim_j - 1)
+                    
+                    if (ki < d) {
+                        sk = sum(adj, 1, 1, dim_i - 1, dim_j - 1)
+                        
+                        p = random()
+                        
+                        pi = ki * 1.0 / sk
+                        
+                        if (pi < p) {
+                            adj[i, j] = 1
+                            adj[j, i] = 1
+                        }
+                    } else {
+                        break
+                    }
+                }
+            }
+        }
+    # Create an hybrid (scale-free small world) network...
+    } elseif (topology == "hybrid") {
+        # Create the small world network...
+        
+        # Create the initial random network...
+        for (i = 1; i < dim_i; i = i + 1) {
+            while (TRUE) {
+                ki = count(adj, i, 1, i, dim_j - 1)
+                
+                if (ki < d) {
+                    j = roundl(random() * n)
+                    
+                    if ((j != 0) && (i != j)) {
+                        adj[i, j] = 1
+                        adj[j, i] = 1
+                    }
+                } else {
+                    break
+                }
+            }
+        }
+        
+        # Rewire network with edge probability p...
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                if (adj[i, j] == 1) {
+                    pij = random()
+                    
+                    if (pij < p) {
+                        while (TRUE) {
+                            k = roundl(random() * n)
+                            
+                            if ((k != 0) && (i != k) && (adj[i, k] == 0)) {
+                                adj[i, j] = 0
+                                adj[j, i] = 0
+                                
+                                adj[i, k] = 1
+                                adj[k, i] = 1
+                                
+                                break
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        # Change it to scale-free...
+        
+        # Add new edges with probability p...
+        for (i = 1; i < dim_i; i = i + 1) {
+            for (j = 1; j < dim_j; j = j + 1) {
+                if ((i != j) && (adj[i, j] == 0)) {
+                    ki = count(adj, i, 1, i, dim_j - 1)
+                    
+                    if (ki < d) {
+                        sk = sum(adj, 1, 1, dim_i - 1, dim_j - 1)
+                        
+                        p = random()
+                        
+                        pi = ki * 1.0 / sk
+                        
+                        if (pi < p) {
+                            adj[i, j] = 1
+                            adj[j, i] = 1
+                        }
+                    } else {
+                        break
+                    }
+                }
+            }
+        }
+    }
+    
+    # Remove loops...
+    for (i = 0; i < dim_i; i = i + 1) {
+        adj[i, i] = 0
+    }
+    
+    # Add loops and make sure the network is connected.
+    if (ni > 0) {
+        # Add loops.
+        for (i = ni + 1; i < dim_i; i = i + 1) {
+            adj[i, i] = 1
+        }
+        
+        # Make sure the network is connected.
+        for (i = 1; i < dim_i; i = i + 1) {
+            found = FALSE
+            
+            for (j = 1; j < dim_j; j = j + 1) {
+                if (i != j) {
+                    if ((adj[i, j] == 1) || (adj[j, i] == 1)) {
+                        found = TRUE
+                        break
+                    }
+                }
+            }
+            
+            if (!found) {
+                while (TRUE) {
+                    k = roundl(random() * n)
+                    
+                    if (k != i) {
+                        break
+                    }
+                }
+                
+                adj[i, k] = 1
+                adj[k, i] = 1
+            }
+        }
+    }
+    
+    # Add the vertices labels...
+    for (i = 1; i < dim_i; i = i + 1) {
+        adj[0, i] = "v" + i
+        adj[i, 0] = "v" + i
+    }
+    
+    # Save the network file...
+    println("Saving file " + sprintf("%0" + length(toString(index_in)) + "." + length(toString(index_in)) + "d", nf) + "...")
+    
+    if (output_file != "noname") {
+       CNA_SaveFile(output_file, adj, output_file_type)
+    }
+    
+    # Get the current time...
+    ts2 = time();
+    
+    # Show the elapsed time...
+    printf("Elapsed time to generate this sample: %.3f seconds\n\n", ts2 - ts1)
+    
+    # Log the elapsed time...
+    if (log_file != "noname") {
+        fputs(sprintf("%d\t%.3f\n", nf, ts2 - ts1), fl)
+    }
+    
+    if (degree_step != 0) {
+        d = d + degree_step
+    }
+}
+
+# Close the log file...
+if (log_file != "noname") {
+    fclose(fl)
+}
+
+# Get the current time...
+t2 = time();
+
+# Show the elapsed time...
+printf("Elapsed time to generate %d samples: %.3f seconds\n\n", nfiles, t2 - t1)
+

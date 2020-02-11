@@ -1,0 +1,150 @@
+#!/usr/local/bin/guash
+#
+# normalize.gua
+#
+#     This script normalizes a time series.
+#
+# Copyright (C) 2017 Roberto Luiz Souza Monteiro.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# RCS: @(#) $Id: normalize.gua,v 1.0 2017/12/27 11:40:00 monteiro Exp $
+#
+
+#
+# Configuration variables.
+#
+input_file = "noname"
+output_file = "output.csv"
+report_file = "report.txt"
+reverse = FALSE
+
+#
+# Main program.
+#
+if (argc < 3) {
+    println("Usage: normalize option1 value1 [option1 value1]")
+    exit
+}
+
+i = 2
+
+while (i < argc) {
+    if ((argv[i] == "-h") || (argv[i] == "--help")) {
+        println("Usage: normalize option1 value1 [option1 value1]")
+        println("-h    --help    show the options sumary")
+        println("-i              input file")
+        println("-o              output file")
+        println("-r              report file")
+        println("     --rev      output will be in reverse order")
+        exit(0)
+    } elseif (argv[i] == "-i") {
+        i = i + 1
+        input_file = argv[i]
+    } elseif (argv[i] == "-o") {
+        i = i + 1
+        output_file = argv[i]
+    } elseif (argv[i] == "-r") {
+        i = i + 1
+        report_file = argv[i]
+    } elseif (argv[i] == "--rev") {
+        reverse = TRUE
+    }
+    i = i + 1
+}
+
+# Check if the input file name was supplied.
+if (input_file == "noname") {
+    println("Error: input file name is mandatory.")
+    exit(1)
+}
+
+# Open the input file.
+fi = fopen(input_file, "r")
+
+average = 0
+deviation = 0
+sx = 0
+sx2 = 0
+n = 0
+
+while (!feof(fi)) {
+    if ((line1 = fgets(fi)) == NULL) {
+        break
+    }
+    
+    if (length(line1) > 0) {
+        x = eval(line1)
+        series[n] = x
+        
+        if (!exists("min_value")) {
+            min_value = x
+        }
+        if (!exists("max_value")) {
+            max_value = x
+        }
+        
+        if (x < min_value) {
+            min_value = x
+        }
+        if (x > max_value) {
+            max_value = x
+        }
+        
+        sx = sx + x
+        sx2 = sx2 + x * x
+        
+        n = n + 1
+    } else {
+        continue
+    }
+}
+
+average = sx / n
+deviation = sqrt((sx2 - (sx * sx) / n) / (n - 1))
+
+fi = fclose(fi)
+
+# Normalize data.
+foreach (series; k; v) {
+    normalized[k] = (1.0 * v - min_value) / (max_value - min_value)
+}
+
+# Create the output file.
+fo = fopen(output_file, "w")
+
+if (reverse) {
+    for (i = length(normalized) - 1; i >= 0; i = i - 1) {
+        fputs(normalized[i] + "\n", fo)
+    }
+} else {
+    foreach (normalized; k; v) {
+        fputs(v + "\n", fo)
+    }
+}
+
+fo = fclose(fo)
+
+# Create the report file.
+fr = fopen(report_file, "w")
+
+fputs("Minimum   = " + min_value + "\n", fr)
+fputs("Maximum   = " + max_value + "\n", fr)
+fputs("Average   = " + average + "\n", fr)
+fputs("Deviation = " + deviation + "\n", fr)
+fputs("Events    = " + n + "\n", fr)
+
+fr = fclose(fr)
+

@@ -1,0 +1,2 @@
+#!/bin/sh
+../../bin/learningmatrix.gua -i input_c_elegans_chemotaxis_network_article.csv -o output_c_elegans_chemotaxis_network_article.csv -c c_elegans_chemotaxis_network_dunn_2004.csv -r c_elegans_chemotaxis_network_dunn_2004.rep --cf c_elegans_chemotaxis_network_dunn_2004_correctness.csv --its learn_input_c_elegans_chemotaxis_network_article.csv --ots learn_output_c_elegans_chemotaxis_network_article.csv --ann c_elegans_chemotaxis_network_dunn_2004.net --annout c_elegans_chemotaxis_network_dunn_2004_out.net --prepare --epochs 1000 --interval 5
